@@ -7,12 +7,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @RefreshScope
 public class Config {
-    @Value("${config-test-uri:}")
+    @Value("${spring.datasource.url:}")
     private String dataSourceUrl;
-    @Value("${config-test-username:}")
+    @Value("${spring.datasource.username:}")
     private String dataUsername;
-    @Value("${config-test-password:}")
+    @Value("${spring.datasource.password:}")
     private String dataPassword;
+    @Value("${config-test-value:}")
+    private String name;
 
     public String getDataSourceUrl() {
         return dataSourceUrl;
@@ -24,5 +26,9 @@ public class Config {
 
     public String getDataPassword() {
         return dataPassword;
+    }
+
+    public String getName() {
+        return name;
     }
 }
